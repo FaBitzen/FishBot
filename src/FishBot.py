@@ -14,14 +14,14 @@ class FishBot(discord.Client):
         if message.author == client.user:
             return
 
-        pattern = "[Ii]['`´]?[Mm] ([^,\.\n\r]+)"
+        pattern = """.*[Ii]['`´"]?[Mm] ([^,\.\n\r]+)"""
         match = regex.match(pattern, message.content)
 
         greetings = ["Hi, ", "Hey, ", "Howdy, "]
 
         if match:
-            await message.channel.send(random.choice(greetings) + match[1] +
-                                       ", I'm dad.")
+            await message.channel.send(random.choice(greetings) +
+                                       match[1] + ", I'm dad.")
 
 
 if __name__ == "__main__":
